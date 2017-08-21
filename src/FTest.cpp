@@ -11,7 +11,7 @@
 
 #include "Analysis/BackgroundModel/interface/FTest.h"
 #include "Analysis/BackgroundModel/interface/ProbabilityDensityFunctions.h"
-#include "Analysis/MssmHbb/interface/utilLib.h"
+#include "Analysis/Core/interface/utilLib.h"
 
 using namespace analysis::backgroundmodel;
 

@@ -29,9 +29,9 @@
 #include "RooWorkspace.h"
 #include "RooPlot.h"
 
-#include "Analysis/MssmHbb/interface/utilLib.h"
+#include "Analysis/Core/interface/utilLib.h"
 #include "Analysis/BackgroundModel/interface/RooSuperNovosibirsk.h"
-#include "Analysis/Tools/interface/RooFitUtils.h"
+#include "Analysis/Core/interface/RooFitUtils.h"
 #include "Analysis/BackgroundModel/interface/RooFitQuality.h"
 
 namespace analysis{

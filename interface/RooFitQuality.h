@@ -16,7 +16,7 @@
 #include "RooFitResult.h"
 
 //User libs
-#include "Analysis/Tools/interface/RooFitUtils.h"
+#include "Analysis/Core/interface/RooFitUtils.h"
 
 namespace analysis {
 namespace backgroundmodel {
