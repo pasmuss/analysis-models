@@ -160,7 +160,7 @@ void FitContainer::initialize() {
   mbb.setRange(fitRangeHighId_.c_str(), blind_highEdge_, fitRangeMax_);
   
   // set fit bins
-  mbb.setBins(73);
+  mbb.setBins(86);
 
   // plot the input data:
   RooAbsData& data = *workspace_.data(data_.c_str());
