@@ -204,14 +204,14 @@ void BackgroundTemplates( TString directory = "novopsprod_240to1700_20GeV")
  	// R e a d   w o r k s p a c e   f r o m   f i l e
   	// -----------------------------------------------
   	// Open input file with workspace
-   outdir_ = "./background_fit/"+directory;
+   outdir_ = directory;
    outdirplots_ = outdir_+"/plots/";
    TString filename = outdir_+"/workspace/FitContainer_workspace.root";
   	TFile *f = new TFile(filename) ;
 	TTree *t = (TTree*)f->Get("fit_b");
 
-	double covMatrix[20];
-   double eigenVector[20];
+	double covMatrix[100];
+   double eigenVector[100];
 	t->SetBranchAddress("covMatrix", covMatrix);
 	t->SetBranchAddress("eigenVector", eigenVector);
 	t->GetEntry(0);
