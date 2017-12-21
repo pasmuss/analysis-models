@@ -149,8 +149,8 @@ namespace analysis {
       float chi2BkgOnly_;
       float normChi2BkgOnly_;
       int ndfBkgOnly_;
-      double covMatrix_[20];
-      double eigenVector_[20];	
+      double covMatrix_[100];
+      double eigenVector_[100];
     };
 
   }
