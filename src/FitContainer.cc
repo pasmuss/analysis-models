@@ -160,7 +160,7 @@ void FitContainer::initialize() {
   mbb.setRange(fitRangeHighId_.c_str(), blind_highEdge_, fitRangeMax_);
   
   // set fit bins
-  mbb.setBins(73);
+  mbb.setBins(86);
 
   // plot the input data:
   RooAbsData& data = *workspace_.data(data_.c_str());
@@ -447,7 +447,7 @@ std::unique_ptr<RooFitResult> FitContainer::backgroundOnlyFit(const std::string&
   latex.SetTextAlign(11);
   latex.DrawLatexNDC(pad1->GetLeftMargin(), 1.02-canvas.GetTopMargin(),
   //                   "CMS Preliminary #sqrt{s} = 13 TeV, L = 2.69 fb^{-1}");
-		     "CMS Preliminary #sqrt{s} = 13 TeV, L = 12.89 fb^{-1}");
+		     "CMS Preliminary #sqrt{s} = 13 TeV, L = 9.55 fb^{-1}");
   latex.SetTextSize(15);
   latex.SetTextAlign(33);
   latex.SetTextColor(kBlue+2);
