@@ -447,7 +447,8 @@ std::unique_ptr<RooFitResult> FitContainer::backgroundOnlyFit(const std::string&
   latex.SetTextAlign(11);
   latex.DrawLatexNDC(pad1->GetLeftMargin(), 1.02-canvas.GetTopMargin(),
   //                   "CMS Preliminary #sqrt{s} = 13 TeV, L = 2.69 fb^{-1}");
-		     "CMS Preliminary #sqrt{s} = 13 TeV, L = 9.55 fb^{-1}");
+	//	     "CMS Preliminary #sqrt{s} = 13 TeV, L = 12.89 fb^{-1}");
+		     "CMS Work in progress #sqrt{s} = 13 TeV, L = 36.26 fb^{-1}");
   latex.SetTextSize(15);
   latex.SetTextAlign(33);
   latex.SetTextColor(kBlue+2);
