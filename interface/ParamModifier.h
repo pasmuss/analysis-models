@@ -6,7 +6,7 @@
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class ParamModifier {
     public:

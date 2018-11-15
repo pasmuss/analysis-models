@@ -2,7 +2,7 @@
 <flags CXXFLAGS="-Werror -Wextra -Wall -Wpointer-arith -Wcast-align -Wwrite-strings -Wcast-qual -Wunreachable-code -Winit-self -ftrapv"/>
 
 <use name="boost_program_options" />
-<use name="Analysis/BackgroundModel" />
+<use name="Analysis/Models" />
 
 <bin name="FitBackgroundModel" file="FitBackgroundModel.cc" />
 <bin name="CreateInput_13TeV" file="CreateInput_13TeV.cc" />

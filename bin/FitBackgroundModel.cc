@@ -7,15 +7,15 @@
 #include "TMatrixDSym.h"
 #include "TMatrixDSymEigen.h"
 #include "RooFitResult.h"
-#include "Analysis/BackgroundModel/interface/HistContainer.h"
-#include "Analysis/BackgroundModel/interface/TreeContainer.h"
-#include "Analysis/BackgroundModel/interface/FitContainer.h"
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
+#include "Analysis/Models/interface/HistContainer.h"
+#include "Analysis/Models/interface/TreeContainer.h"
+#include "Analysis/Models/interface/FitContainer.h"
+#include "Analysis/Models/interface/ParamModifier.h"
+#include "Analysis/Models/interface/Tools.h"
 
 
 namespace po = boost::program_options;
-namespace ab = analysis::backgroundmodel;
+namespace ab = analysis::models;
 
 int backgroundOnlyFit(ab::FitContainer&, po::variables_map&);
 

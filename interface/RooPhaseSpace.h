@@ -9,7 +9,7 @@
  
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
  
  	class RooPhaseSpace : public RooAbsPdf {
 	public:

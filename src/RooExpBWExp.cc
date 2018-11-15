@@ -1,10 +1,10 @@
 #include <cmath>
 #include "Riostream.h"
 #include "TMath.h"
-#include "Analysis/BackgroundModel/interface/RooExpBWExp.h"
+#include "Analysis/Models/interface/RooExpBWExp.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooExpBWExp)

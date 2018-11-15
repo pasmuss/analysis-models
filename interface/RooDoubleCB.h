@@ -6,7 +6,7 @@
 #include "RooAbsReal.h"
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class RooDoubleCB : public RooAbsPdf {
     public:

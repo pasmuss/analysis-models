@@ -22,13 +22,13 @@
 #include "RooWorkspace.h"
 #include "RooFitResult.h"
 #include "RooList.h"
-#include "Analysis/BackgroundModel/interface/HistContainer.h"
-#include "Analysis/BackgroundModel/interface/TreeContainer.h"
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
+#include "Analysis/Models/interface/HistContainer.h"
+#include "Analysis/Models/interface/TreeContainer.h"
+#include "Analysis/Models/interface/ParamModifier.h"
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class FitContainer {
     public:

@@ -1,8 +1,8 @@
 <lcgdict>
-  <class name="analysis::backgroundmodel::RooDoubleCB" />
-  <class name="analysis::backgroundmodel::RooExpGausExp" />
-  <class name="analysis::backgroundmodel::RooGausExp" />
-  <class name="analysis::backgroundmodel::RooExpBWExp" />
-  <class name="analysis::backgroundmodel::RooPhaseSpace" />
-  <class name="analysis::backgroundmodel::RooPhaseSpacePol4" />
+  <class name="analysis::models::RooDoubleCB" />
+  <class name="analysis::models::RooExpGausExp" />
+  <class name="analysis::models::RooGausExp" />
+  <class name="analysis::models::RooExpBWExp" />
+  <class name="analysis::models::RooPhaseSpace" />
+  <class name="analysis::models::RooPhaseSpacePol4" />
 </lcgdict>

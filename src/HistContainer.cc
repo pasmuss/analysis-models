@@ -1,9 +1,9 @@
 #include "TFile.h"
-#include "Analysis/BackgroundModel/interface/HistContainer.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
+#include "Analysis/Models/interface/HistContainer.h"
+#include "Analysis/Models/interface/Tools.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 /*
 HistContainer::HistContainer(const std::string& input) : histFileName_(input) {

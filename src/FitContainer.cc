@@ -21,17 +21,17 @@
 #include "RooCBShape.h"
 #include "RooBukinPdf.h"
 #include "RooProdPdf.h"
-#include "Analysis/BackgroundModel/interface/RooDoubleCB.h"
-#include "Analysis/BackgroundModel/interface/RooExpGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooExpBWExp.h"
-#include "Analysis/BackgroundModel/interface/RooPhaseSpace.h"
-#include "Analysis/BackgroundModel/interface/RooPhaseSpacePol4.h"
-#include "Analysis/BackgroundModel/interface/FitContainer.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
+#include "Analysis/Models/interface/RooDoubleCB.h"
+#include "Analysis/Models/interface/RooExpGausExp.h"
+#include "Analysis/Models/interface/RooGausExp.h"
+#include "Analysis/Models/interface/RooExpBWExp.h"
+#include "Analysis/Models/interface/RooPhaseSpace.h"
+#include "Analysis/Models/interface/RooPhaseSpacePol4.h"
+#include "Analysis/Models/interface/FitContainer.h"
+#include "Analysis/Models/interface/Tools.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 //FitContainer::FitContainer(const TH1& data, const TH1& signal, const TH1& bkg,
 //			   const std::string& outputDir) :
@@ -1238,4 +1238,4 @@ const std::vector<std::string> FitContainer::availableModels_ =
 const int FitContainer::defaultNumberOfCoefficients_ = 4;
 
 const std::string FitContainer::defaultOutputDir_ =
-  std::string(gSystem->Getenv("CMSSW_BASE"))+"/src/Analysis/BackgroundModel/test/";
+  std::string(gSystem->Getenv("CMSSW_BASE"))+"/src/Analysis/Models/test/";

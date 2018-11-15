@@ -8,7 +8,7 @@
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class TreeContainer {
     public:

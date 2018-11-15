@@ -3,11 +3,11 @@
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
-#include "Analysis/BackgroundModel/interface/Tools.h"
+#include "Analysis/Models/interface/Tools.h"
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     std::string uniquify(const std::string& original) {
       boost::uuids::uuid uuid = boost::uuids::random_generator()();
