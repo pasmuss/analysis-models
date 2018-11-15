@@ -4,11 +4,11 @@
 #include <vector>
 #include <memory>
 #include <string>
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
+#include "Analysis/Models/interface/ParamModifier.h"
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     std::string uniquify(const std::string& original);
     TObject* uniqueClone(const TObject* original);

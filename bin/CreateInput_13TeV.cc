@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
   int arg1 = argc-1;
   TString inputFileName = TString(cmsswBase)+"/src/Analysis/MssmHbb/test/"+TString(argv[arg1]);
   
-  const std::string outputFileName =    cmsswBase+"/src/Analysis/BackgroundModel/data/TripleBTagReverseSelection_13TeV.root";
+  const std::string outputFileName =    cmsswBase+"/src/Analysis/Models/data/TripleBTagReverseSelection_13TeV.root";
 
   TFile input(inputFileName, "read");
   std::unique_ptr<TTree> inputTree(static_cast<TTree*>(input.Get("MssmHbb")));

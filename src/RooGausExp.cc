@@ -3,10 +3,10 @@
 #include "RooAbsReal.h"
 #include "RooAbsCategory.h"
 #include "TMath.h"
-#include "Analysis/BackgroundModel/interface/RooGausExp.h"
+#include "Analysis/Models/interface/RooGausExp.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooGausExp)

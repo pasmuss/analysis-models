@@ -7,7 +7,7 @@
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class RooGausExp : public RooAbsPdf {
     public:
