@@ -5,9 +5,9 @@
  *      Author: rostyslav
  */
 
-#include "Analysis/BackgroundModel/interface/RooSuperDiJet.h"
+#include "Analysis/Models/interface/RooSuperDiJet.h"
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 ClassImp(RooSuperDiJet)
 

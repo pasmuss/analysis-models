@@ -1,12 +1,12 @@
-#ifndef Analysis_BackgroundModel_ParamModifier_h
-#define Analysis_BackgroundModel_ParamModifier_h 1
+#ifndef Analysis_Models_ParamModifier_h
+#define Analysis_Models_ParamModifier_h 1
 
 #include <string>
 #include "RooRealVar.h"
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class ParamModifier {
     public:
@@ -38,4 +38,4 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_ParamModifier_h
+#endif  // Analysis_Models_ParamModifier_h

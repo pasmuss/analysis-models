@@ -5,8 +5,8 @@
  *      Author: shevchen
  */
 
-#ifndef BACKGROUNDMODEL_INTERFACE_PROBABILITYDENSITYFUNCTIONS_H_
-#define BACKGROUNDMODEL_INTERFACE_PROBABILITYDENSITYFUNCTIONS_H_
+#ifndef Analysis_Models_ProbabilityDensityFunctions_h_
+#define Analysis_Models_ProbabilityDensityFunctions_h_
 
 #include <sstream>
 #include <exception>
@@ -31,26 +31,26 @@
 #include "RooChebychev.h"
 #include "RooBreitWigner.h"
 
-#include "Analysis/BackgroundModel/interface/RooDoubleCB.h"
-#include "Analysis/BackgroundModel/interface/RooExpGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooExpBWExp.h"
-#include "Analysis/BackgroundModel/interface/RooPhaseSpace.h"
-#include "Analysis/BackgroundModel/interface/RooPhaseSpacePol4.h"
-#include "Analysis/BackgroundModel/interface/RooRelBreitWigner.h"
-#include "Analysis/BackgroundModel/interface/RooQuadGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooMyNovosibirsk.h"
-#include "Analysis/BackgroundModel/interface/RooSuperNovosibirsk.h"
-#include "Analysis/BackgroundModel/interface/RooExtendNovosibirsk.h"
-#include "Analysis/BackgroundModel/interface/RooDoubleGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooPolyDijet.h"
-#include "Analysis/BackgroundModel/interface/RooSuperDiJet.h"
+#include "Analysis/Models/interface/RooDoubleCB.h"
+#include "Analysis/Models/interface/RooExpGausExp.h"
+#include "Analysis/Models/interface/RooGausExp.h"
+#include "Analysis/Models/interface/RooExpBWExp.h"
+#include "Analysis/Models/interface/RooPhaseSpace.h"
+#include "Analysis/Models/interface/RooPhaseSpacePol4.h"
+#include "Analysis/Models/interface/RooRelBreitWigner.h"
+#include "Analysis/Models/interface/RooQuadGausExp.h"
+#include "Analysis/Models/interface/RooMyNovosibirsk.h"
+#include "Analysis/Models/interface/RooSuperNovosibirsk.h"
+#include "Analysis/Models/interface/RooExtendNovosibirsk.h"
+#include "Analysis/Models/interface/RooDoubleGausExp.h"
+#include "Analysis/Models/interface/RooPolyDijet.h"
+#include "Analysis/Models/interface/RooSuperDiJet.h"
 
-//#include "Analysis/BackgroundModel/interface/FitContainer.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
+//#include "Analysis/Models/interface/FitContainer.h"
+#include "Analysis/Models/interface/Tools.h"
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
   class ProbabilityDensityFunctions {
   public:
@@ -162,4 +162,4 @@ namespace analysis {
 
   }
 }
-#endif /* BACKGROUNDMODEL_INTERFACE_PROBABILITYDENSITYFUNCTIONS_H_ */
+#endif /* Analysis_Models_ProbabilityDensityFunctions_h_ */

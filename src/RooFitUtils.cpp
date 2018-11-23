@@ -5,7 +5,7 @@
  *      Author: shevchen
  */
 
-#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
+#include "Analysis/Models/interface/RooFitUtils.h"
 
 namespace analysis {
 

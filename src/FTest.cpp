@@ -9,11 +9,11 @@
 #include "TCanvas.h"
 #include "RooFitResult.h"
 
-#include "Analysis/BackgroundModel/interface/FTest.h"
-#include "Analysis/BackgroundModel/interface/ProbabilityDensityFunctions.h"
-#include "Analysis/BackgroundModel/interface/utilLib.h"
+#include "Analysis/Models/interface/FTest.h"
+#include "Analysis/Models/interface/ProbabilityDensityFunctions.h"
+#include "Analysis/Models/interface/utilLib.h"
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 FTest::FTest(TH1 & data_obs, RooRealVar & observable, const std::string& pdf_family) :
 		pdf_family_(pdf_family), data_name_("data") {

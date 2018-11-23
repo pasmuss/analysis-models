@@ -5,8 +5,8 @@
  *      Author: shevchen
  */
 
-#ifndef Analysis_BackgroundModel_FTest_h_
-#define Analysis_BackgroundModel_FTest_h_
+#ifndef Analysis_Models_FTest_h_
+#define Analysis_Models_FTest_h_
 
 /*
  * @author shevchen
@@ -29,13 +29,13 @@
 #include "RooWorkspace.h"
 #include "RooPlot.h"
 
-#include "Analysis/BackgroundModel/interface/utilLib.h"
-#include "Analysis/BackgroundModel/interface/RooSuperNovosibirsk.h"
-#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
-#include "Analysis/BackgroundModel/interface/RooFitQuality.h"
+#include "Analysis/Models/interface/utilLib.h"
+#include "Analysis/Models/interface/RooSuperNovosibirsk.h"
+#include "Analysis/Models/interface/RooFitUtils.h"
+#include "Analysis/Models/interface/RooFitQuality.h"
 
 namespace analysis{
-namespace backgroundmodel{
+namespace models{
 class FTest {
 public:
 //	FTest() : pdf_family_(""), max_degree_(0), workspace_("workspace") {}  = default;
@@ -70,4 +70,4 @@ private:
 };
 }
 }
-#endif /* Analysis_BackgroundModel_FTest_h_ */
+#endif /* Analysis_Models_FTest_h_ */

@@ -1,5 +1,5 @@
-#ifndef Analysis_BackgroundModel_RooDoubleGausExp_h
-#define Analysis_BackgroundModel_RooDoubleGausExp_h 1
+#ifndef Analysis_Models_RooDoubleGausExp_h
+#define Analysis_Models_RooDoubleGausExp_h 1
 
 #include "RooAbsPdf.h"
 #include "RooRealProxy.h"
@@ -7,7 +7,7 @@
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class RooDoubleGausExp : public RooAbsPdf {
     public:
@@ -41,4 +41,4 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_RooDoubleGausExp_h
+#endif  // Analysis_Models_RooDoubleGausExp_h

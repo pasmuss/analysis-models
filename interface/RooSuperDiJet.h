@@ -5,8 +5,8 @@
  *      Author: rostyslav
  */
 
-#ifndef ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOSUPERDIJET_H_
-#define ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOSUPERDIJET_H_
+#ifndef Analysis_Models_RooSuperDijet_h_
+#define Analysis_Models_RooSuperDijet_h_
 
 #include "RooAbsPdf.h"
 #include "RooAbsArg.h"
@@ -17,7 +17,7 @@
 #include "TMath.h"
 
 namespace analysis {
-namespace backgroundmodel {
+namespace models {
 
 class RooSuperDiJet : public RooAbsPdf {
 public:
@@ -45,7 +45,7 @@ private:
     ClassDef(RooSuperDiJet,1)
 };
 
-} /* namespace backgroundmodel */
+} /* namespace models */
 } /* namespace analysis */
 
-#endif /* ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOSUPERDIJET_H_ */
+#endif /* Analysis_Models_RooSuperDijet_h_ */

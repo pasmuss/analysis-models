@@ -1,7 +1,7 @@
 #include <regex>
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
+#include "Analysis/Models/interface/ParamModifier.h"
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 ParamModifier::ParamModifier(const std::string& name)
   : name_(name), constant_(false), floating_(false), start_(0), min_(0), max_(0),

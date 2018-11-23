@@ -1,5 +1,5 @@
-#ifndef Analysis_BackgroundModel_RooPhaseSpacePol4_h
-#define Analysis_BackgroundModel_RooPhaseSpacePol4_h 1
+#ifndef Analysis_Models_RooPhaseSpacePol4_h
+#define Analysis_Models_RooPhaseSpacePol4_h 1
 
 #include "RooAbsPdf.h"
 #include "RooRealProxy.h"
@@ -7,7 +7,7 @@
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class RooPhaseSpacePol4 : public RooAbsPdf {
     public:
@@ -33,4 +33,4 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_RooExpGausExp_h
+#endif  // Analysis_Models_RooExpGausExp_h

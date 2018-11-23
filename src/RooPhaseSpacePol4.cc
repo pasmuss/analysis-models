@@ -8,13 +8,13 @@
 
 #include "Riostream.h" 
 #include <cmath>
-#include "Analysis/BackgroundModel/interface/RooPhaseSpacePol4.h" 
+#include "Analysis/Models/interface/RooPhaseSpacePol4.h" 
 #include "RooAbsReal.h" 
 #include "RooAbsCategory.h" 
 #include <math.h> 
 #include "TMath.h" 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooPhaseSpacePol4) 

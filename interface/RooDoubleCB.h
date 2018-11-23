@@ -1,12 +1,12 @@
-#ifndef Analysis_BackgroundModel_RooDoubleCB_h
-#define Analysis_BackgroundModel_RooDoubleCB_h 1
+#ifndef Analysis_Models_RooDoubleCB_h
+#define Analysis_Models_RooDoubleCB_h 1
 
 #include "RooAbsPdf.h"
 #include "RooRealProxy.h"
 #include "RooAbsReal.h"
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class RooDoubleCB : public RooAbsPdf {
     public:
@@ -45,4 +45,4 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_RooDoubleCB_h
+#endif  // Analysis_Models_RooDoubleCB_h

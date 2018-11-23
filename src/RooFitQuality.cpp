@@ -5,10 +5,10 @@
  *      Author: shevchen
  */
 
-#include "Analysis/BackgroundModel/interface/RooFitQuality.h"
+#include "Analysis/Models/interface/RooFitQuality.h"
 
 namespace analysis {
-namespace backgroundmodel {
+namespace models {
 
 void RooFitQuality::PrintParametersInfo(const RooFitResult& res){
 	/*
@@ -73,5 +73,5 @@ std::pair<double,double> RooFitQuality::CurveRange(const RooCurve &curve){
 	return std::make_pair(curve_xstart,curve_xstop);
 }
 
-} /* namespace backgroundmodel */
+} /* namespace models */
 } /* namespace analysis */

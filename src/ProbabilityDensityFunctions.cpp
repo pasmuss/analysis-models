@@ -5,9 +5,9 @@
  *      Author: shevchen
  */
 
-#include "Analysis/BackgroundModel/interface/ProbabilityDensityFunctions.h"
+#include "Analysis/Models/interface/ProbabilityDensityFunctions.h"
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 ProbabilityDensityFunctions::ProbabilityDensityFunctions(RooWorkspace& workspace, const std::string& var_name, const bool& modify_par_names) : peak_(-100), workspace_(&workspace), var_(var_name), modify_par_names_(modify_par_names) {
 	// TODO Auto-generated constructor stub

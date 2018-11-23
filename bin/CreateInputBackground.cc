@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
   
   TString outputFileName = TString(inputFileName(0,inputFileName.Length()-5))+"_Background.root";
   
-//  const std::string outputFileName =    cmsswBase+"/src/Analysis/BackgroundModel/data/TripleBTagReverseSelection_13TeV.root";
+//  const std::string outputFileName =    cmsswBase+"/src/Analysis/Models/data/TripleBTagReverseSelection_13TeV.root";
 //    const std::string outputFileName =  "TripleBTagReverseSelection_13TeV.root";
     
   TFile input(inputFileName, "read");

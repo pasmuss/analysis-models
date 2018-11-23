@@ -1,10 +1,10 @@
 #include "TFile.h"
 #include "TROOT.h"
-#include "Analysis/BackgroundModel/interface/TreeContainer.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
+#include "Analysis/Models/interface/TreeContainer.h"
+#include "Analysis/Models/interface/Tools.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 TreeContainer::TreeContainer(const std::string& input) :

@@ -7,16 +7,16 @@
 #include "TMatrixDSym.h"
 #include "TMatrixDSymEigen.h"
 #include "RooFitResult.h"
-#include "Analysis/BackgroundModel/interface/HistContainer.h"
-#include "Analysis/BackgroundModel/interface/TreeContainer.h"
-#include "Analysis/BackgroundModel/interface/FitContainer.h"
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
-#include "Analysis/BackgroundModel/interface/ProbabilityDensityFunctions.h"
+#include "Analysis/Models/interface/HistContainer.h"
+#include "Analysis/Models/interface/TreeContainer.h"
+#include "Analysis/Models/interface/FitContainer.h"
+#include "Analysis/Models/interface/ParamModifier.h"
+#include "Analysis/Models/interface/Tools.h"
+#include "Analysis/Models/interface/ProbabilityDensityFunctions.h"
 
 
 namespace po = boost::program_options;
-namespace ab = analysis::backgroundmodel;
+namespace ab = analysis::models;
 
 int backgroundOnlyFit(ab::FitContainer&, po::variables_map&);
 
@@ -33,14 +33,14 @@ int main(int argc, char* argv[]) {
     ("profile,p", "Create profile likelihoods of the fit parameters.")
     ("list_parameters,l", "List parameters of the chosen fit models and exit.")
     ("input_file,i", po::value<std::string>()
-     ->default_value(cmsswBase+"/src/Analysis/BackgroundModel/"
+     ->default_value(cmsswBase+"/src/Analysis/Models/"
                      "data/HIG14017_HighMass2012_Packed_M350_inputs.root"),
      "ROOT file from which input histograms are retrieved.")
     ("input_tree_file,t", po::value<std::string>(),
      "ROOT file from which input tree is retrieved. If this parameter is not "
      "given a binned fit is performed using 'input_file'.")
     ("output_directory,o", po::value<std::string>()
-     ->default_value(cmsswBase+"/src/Analysis/BackgroundModel/test/"),
+     ->default_value(cmsswBase+"/src/Analysis/Models/test/"),
      "Directory where the output is stored.")
     ("fit_min", po::value<float>(), "Lower bound of the fit range.")
     ("fit_max", po::value<float>(), "Upper bound of the fit range.")

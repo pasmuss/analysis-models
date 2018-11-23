@@ -5,8 +5,8 @@
  *      Author: shevchen
  */
 
-#ifndef ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOSUPERNOVOSIBIRSK_H_
-#define ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOSUPERNOVOSIBIRSK_H_
+#ifndef Analysis_Models_RooSuperNovosibirsk_h_
+#define Analysis_Models_RooSuperNovosibirsk_h_
 
 #include "RooAbsPdf.h"
 #include "RooRealProxy.h"
@@ -16,7 +16,7 @@
 #include "TMath.h"
 
 namespace analysis {
-namespace backgroundmodel {
+namespace models {
 
 /*
  * @author shevchen
@@ -49,7 +49,7 @@ private:
     ClassDef(RooSuperNovosibirsk,1)
 };
 
-} /* namespace backgroundmodel */
+} /* namespace models */
 } /* namespace analysis */
 
-#endif /* ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOSUPERNOVOSIBIRSK_H_ */
+#endif /* Analysis_Models_RooSuperNovosibirsk_h_ */

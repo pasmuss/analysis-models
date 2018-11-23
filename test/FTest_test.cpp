@@ -7,16 +7,16 @@
  *      Unity test of FTest class
  */
 
-#include "Analysis/BackgroundModel/interface/FTest.h"
+#include "Analysis/Models/interface/FTest.h"
 
 #include "TFile.h"
 #include "TTree.h"
 
 #include "RooDataSet.h"
 #include "RooRealVar.h"
-#include "Analysis/BackgroundModel/interface/utilLib.h"
+#include "Analysis/Models/interface/utilLib.h"
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 using namespace std;
 
 struct sub_range{

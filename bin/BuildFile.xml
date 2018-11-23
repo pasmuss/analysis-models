@@ -5,7 +5,7 @@
 <use name="rootgraphics"/>
 <use name="roofit" />
 <use name="boost" />
-<use name="Analysis/BackgroundModel" />
+<use name="Analysis/Models" />
 <export>
   <lib name="1"/>
 </export>

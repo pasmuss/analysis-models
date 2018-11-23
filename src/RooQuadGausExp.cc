@@ -1,10 +1,10 @@
 #include <cmath>
 #include "Riostream.h"
 #include "TMath.h"
-#include "Analysis/BackgroundModel/interface/RooQuadGausExp.h"
+#include "Analysis/Models/interface/RooQuadGausExp.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooQuadGausExp)

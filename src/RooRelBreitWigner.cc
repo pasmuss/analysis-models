@@ -1,10 +1,10 @@
 #include <cmath>
 #include "Riostream.h"
 #include "TMath.h"
-#include "Analysis/BackgroundModel/interface/RooRelBreitWigner.h"
+#include "Analysis/Models/interface/RooRelBreitWigner.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooRelBreitWigner)

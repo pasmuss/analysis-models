@@ -1,5 +1,5 @@
-#ifndef Analysis_BackgroundModel_FitContainer_h
-#define Analysis_BackgroundModel_FitContainer_h 1
+#ifndef Analysis_Models_FitContainer_h
+#define Analysis_Models_FitContainer_h 1
 
 #include <vector>
 #include <string>
@@ -32,16 +32,16 @@
 #include "RooGaussian.h"
 #include "RooAddPdf.h"
 
-#include "Analysis/BackgroundModel/interface/HistContainer.h"
-#include "Analysis/BackgroundModel/interface/TreeContainer.h"
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
-#include "Analysis/BackgroundModel/interface/ProbabilityDensityFunctions.h"
-#include "Analysis/BackgroundModel/interface/RooFitQuality.h"
-#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
+#include "Analysis/Models/interface/HistContainer.h"
+#include "Analysis/Models/interface/TreeContainer.h"
+#include "Analysis/Models/interface/ParamModifier.h"
+#include "Analysis/Models/interface/ProbabilityDensityFunctions.h"
+#include "Analysis/Models/interface/RooFitQuality.h"
+#include "Analysis/Models/interface/RooFitUtils.h"
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class FitContainer {
     public:
@@ -152,4 +152,4 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_FitContainer_h
+#endif  // Analysis_Models_FitContainer_h

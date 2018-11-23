@@ -1,5 +1,5 @@
-#ifndef Analysis_BackgroundModel_RooMyNovosibirsk_h
-#define Analysis_BackgroundModel_RooMyNovosibirsk_h 1
+#ifndef Analysis_Models_RooMyNovosibirsk_h
+#define Analysis_Models_RooMyNovosibirsk_h 1
 
 #include "RooAbsPdf.h"
 #include "RooRealProxy.h"
@@ -9,7 +9,7 @@ class RooRealVar;
 class RooAbsReal;
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     class RooMyNovosibirsk : public RooAbsPdf {
     public:
@@ -38,6 +38,6 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_RooMyNovosibirsk_h
+#endif  // Analysis_Models_RooMyNovosibirsk_h
 
 

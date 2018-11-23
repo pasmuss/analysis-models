@@ -1,14 +1,14 @@
-#ifndef Analysis_BackgroundModel_Tools_h
-#define Analysis_BackgroundModel_Tools_h 1
+#ifndef Analysis_Models_Tools_h
+#define Analysis_Models_Tools_h 1
 
 #include <vector>
 #include <memory>
 #include <string>
-#include "Analysis/BackgroundModel/interface/ParamModifier.h"
+#include "Analysis/Models/interface/ParamModifier.h"
 
 
 namespace analysis {
-  namespace backgroundmodel {
+  namespace models {
 
     std::string uniquify(const std::string& original);
     TObject* uniqueClone(const TObject* original);
@@ -22,4 +22,4 @@ namespace analysis {
   }
 }
 
-#endif  // Analysis_BackgroundModel_Tools_h
+#endif  // Analysis_Models_Tools_h

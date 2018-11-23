@@ -3,10 +3,10 @@
 #include "RooAbsReal.h"
 #include "RooAbsCategory.h"
 #include "TMath.h"
-#include "Analysis/BackgroundModel/interface/RooMyNovosibirsk.h"
+#include "Analysis/Models/interface/RooMyNovosibirsk.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooMyNovosibirsk)

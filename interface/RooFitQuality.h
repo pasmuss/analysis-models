@@ -5,8 +5,8 @@
  *      Author: shevchen
  */
 
-#ifndef Analysis_BackgroundModel_RooFitQuality_h
-#define Analysis_BackgroundModel_RooFitQuality_h
+#ifndef Analysis_Models_RooFitQuality_h
+#define Analysis_Models_RooFitQuality_h
 
 #include <utility>
 
@@ -16,10 +16,10 @@
 #include "RooFitResult.h"
 
 //User libs
-#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
+#include "Analysis/Models/interface/RooFitUtils.h"
 
 namespace analysis {
-namespace backgroundmodel {
+namespace models {
 
 class Chi2Ndf{
 public:
@@ -44,7 +44,7 @@ private:
 	std::pair<double,double> CurveRange(const RooCurve &curve);
 };
 
-} /* namespace backgroundmodel */
+} /* namespace models */
 } /* namespace analysis */
 
-#endif /* Analysis_BackgroundModel_RooFitQuality_h */
+#endif /* Analysis_Models_RooFitQuality_h */

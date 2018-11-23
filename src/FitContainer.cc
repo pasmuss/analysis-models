@@ -21,17 +21,17 @@
 #include "RooCBShape.h"
 #include "RooBukinPdf.h"
 #include "RooProdPdf.h"
-#include "Analysis/BackgroundModel/interface/RooDoubleCB.h"
-#include "Analysis/BackgroundModel/interface/RooExpGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooGausExp.h"
-#include "Analysis/BackgroundModel/interface/RooExpBWExp.h"
-#include "Analysis/BackgroundModel/interface/RooPhaseSpace.h"
-#include "Analysis/BackgroundModel/interface/RooPhaseSpacePol4.h"
-#include "Analysis/BackgroundModel/interface/FitContainer.h"
-#include "Analysis/BackgroundModel/interface/Tools.h"
+#include "Analysis/Models/interface/RooDoubleCB.h"
+#include "Analysis/Models/interface/RooExpGausExp.h"
+#include "Analysis/Models/interface/RooGausExp.h"
+#include "Analysis/Models/interface/RooExpBWExp.h"
+#include "Analysis/Models/interface/RooPhaseSpace.h"
+#include "Analysis/Models/interface/RooPhaseSpacePol4.h"
+#include "Analysis/Models/interface/FitContainer.h"
+#include "Analysis/Models/interface/Tools.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 //private constructor, for members initialisation
 FitContainer::FitContainer(const std::string& outputDir) :
@@ -920,4 +920,4 @@ void FitContainer::makeLog_(const RooFitResult& fitResult){
 }
 
 const std::string FitContainer::defaultOutputDir_ =
-  std::string(gSystem->Getenv("CMSSW_BASE"))+"/src/Analysis/BackgroundModel/test/";
+  std::string(gSystem->Getenv("CMSSW_BASE"))+"/src/Analysis/Models/test/";

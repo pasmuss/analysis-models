@@ -7,8 +7,8 @@
  *  Lib for working with RooFit classes.
  */
 
-#ifndef Analysis_BackgroundModel_RooFitUtils_h_
-#define Analysis_BackgroundModel_RooFitUtils_h_
+#ifndef Analysis_Models_RooFitUtils_h_
+#define Analysis_Models_RooFitUtils_h_
 
 #include <string>
 #include <exception>
@@ -24,7 +24,7 @@
 #include "RooCurve.h"
 #include "RooHist.h"
 
-#include "Analysis/BackgroundModel/interface/utilLib.h"
+#include "Analysis/Models/interface/utilLib.h"
 
 namespace analysis {
 
@@ -72,4 +72,4 @@ template<typename T> T* GetRooObjectFromTFile( const std::string& file_name, con
 
 
 
-#endif /* Analysis_BackgroundModel_RooFitUtils_h_ */
+#endif /* Analysis_Models_RooFitUtils_h_ */

@@ -4,10 +4,10 @@
 
 #include "RooRealVar.h"
 #include "RooRealConstant.h"
-#include "Analysis/BackgroundModel/interface/RooDoubleCB.h"
+#include "Analysis/Models/interface/RooDoubleCB.h"
 
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 
 ClassImp(RooDoubleCB)

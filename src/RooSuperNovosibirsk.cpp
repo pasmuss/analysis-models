@@ -5,9 +5,9 @@
  *      Author: shevchen
  */
 
-#include "Analysis/BackgroundModel/interface/RooSuperNovosibirsk.h"
+#include "Analysis/Models/interface/RooSuperNovosibirsk.h"
 
-using namespace analysis::backgroundmodel;
+using namespace analysis::models;
 
 ClassImp(RooSuperNovosibirsk)
 

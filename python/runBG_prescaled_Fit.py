@@ -16,11 +16,11 @@ if __name__ == '__main__':
     #define functions to be fitted
     pdfs = ['superdijeteffprod,2']#['extnovoeffprod','superdijeteffprod,2','berneffprod,8']
     # folder with a data
-    data_folder = os.environ['CMSSW_BASE'] + '/src/Analysis/BackgroundModel/data/2016DataRereco_05_01_2017/'
+    data_folder = os.environ['CMSSW_BASE'] + '/src/Analysis/Models/data/2016DataRereco_05_01_2017/'
     #data name template
     data_name = 'TripleBTagReverseSelectionBtoH2016_prescale_13TeV_'#'TripleBTagReverseSelectionBtoH2016_13TeV'#
     #output folder
-    out_folder = os.environ['CMSSW_BASE'] + '/src/Analysis/BackgroundModel/test/'
+    out_folder = os.environ['CMSSW_BASE'] + '/src/Analysis/Models/test/'
     #output fit folder
     out_fit_folder = 'Prescale_' #'fullBBnB'#
     if not os.path.exists(out_folder): os.mkdir(out_folder)

@@ -23,8 +23,8 @@ valgrind --tool=memcheck --track-origins=yes \
  FitBackgroundModel -b bukin
 ```
 
-NB: Compile with the following flags in `Analysis/BackgroundModel/BuildFile.xml`
-    and `Analysis/BackgroundModel/bin/BuildFile.xml`:
+NB: Compile with the following flags in `Analysis/Models/BuildFile.xml`
+    and `Analysis/Models/bin/BuildFile.xml`:
 ```
 <flags CXXFLAGS="-g -O0" />
 ```
