@@ -37,7 +37,7 @@
 #include "Analysis/BackgroundModel/interface/ParamModifier.h"
 #include "Analysis/BackgroundModel/interface/ProbabilityDensityFunctions.h"
 #include "Analysis/BackgroundModel/interface/RooFitQuality.h"
-#include "Analysis/Tools/interface/RooFitUtils.h"
+#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
 
 
 namespace analysis {

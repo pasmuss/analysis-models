@@ -14,7 +14,7 @@
 
 #include "RooDataSet.h"
 #include "RooRealVar.h"
-#include "Analysis/MssmHbb/interface/utilLib.h"
+#include "Analysis/BackgroundModel/interface/utilLib.h"
 
 using namespace analysis::backgroundmodel;
 using namespace std;

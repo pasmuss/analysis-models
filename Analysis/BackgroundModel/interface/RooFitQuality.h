@@ -5,8 +5,8 @@
  *      Author: shevchen
  */
 
-#ifndef ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOFITQUALITY_H_
-#define ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOFITQUALITY_H_
+#ifndef Analysis_BackgroundModel_RooFitQuality_h
+#define Analysis_BackgroundModel_RooFitQuality_h
 
 #include <utility>
 
@@ -16,7 +16,7 @@
 #include "RooFitResult.h"
 
 //User libs
-#include "Analysis/Tools/interface/RooFitUtils.h"
+#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
 
 namespace analysis {
 namespace backgroundmodel {
@@ -47,4 +47,4 @@ private:
 } /* namespace backgroundmodel */
 } /* namespace analysis */
 
-#endif /* ANALYSIS_BACKGROUNDMODEL_INTERFACE_ROOFITQUALITY_H_ */
+#endif /* Analysis_BackgroundModel_RooFitQuality_h */

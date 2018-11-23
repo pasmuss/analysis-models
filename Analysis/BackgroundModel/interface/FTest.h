@@ -5,8 +5,8 @@
  *      Author: shevchen
  */
 
-#ifndef ANALYSIS_BACKGROUNDMODEL_INTERFACE_FTEST_H_
-#define ANALYSIS_BACKGROUNDMODEL_INTERFACE_FTEST_H_
+#ifndef Analysis_BackgroundModel_FTest_h_
+#define Analysis_BackgroundModel_FTest_h_
 
 /*
  * @author shevchen
@@ -29,9 +29,9 @@
 #include "RooWorkspace.h"
 #include "RooPlot.h"
 
-#include "Analysis/MssmHbb/interface/utilLib.h"
+#include "Analysis/BackgroundModel/interface/utilLib.h"
 #include "Analysis/BackgroundModel/interface/RooSuperNovosibirsk.h"
-#include "Analysis/Tools/interface/RooFitUtils.h"
+#include "Analysis/BackgroundModel/interface/RooFitUtils.h"
 #include "Analysis/BackgroundModel/interface/RooFitQuality.h"
 
 namespace analysis{
@@ -70,4 +70,4 @@ private:
 };
 }
 }
-#endif /* ANALYSIS_BACKGROUNDMODEL_INTERFACE_FTEST_H_ */
+#endif /* Analysis_BackgroundModel_FTest_h_ */
