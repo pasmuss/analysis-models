@@ -681,11 +681,11 @@ std::unique_ptr<RooFitResult> FitContainer::backgroundOnlyFit(const std::string&
 
 void FitContainer::profileModel(const Type& type) {
   RooAbsPdf& model= *(workspace_.pdf(toString(type).c_str()));
-  if (&model == nullptr) {
-    std::stringstream msg;
-    msg << "No model of type '" << toString(type) << "' is set, yet.";
-    throw std::logic_error(msg.str());
-  }
+//   if (&model == nullptr) {
+//     std::stringstream msg;
+//     msg << "No model of type '" << toString(type) << "' is set, yet.";
+//     throw std::logic_error(msg.str());
+//   }
 
   // get the objects from the workspace:
   RooAbsData& data = *workspace_.data(data_.c_str());
