@@ -249,7 +249,8 @@ void FitContainer::initialize() {
   gSystem->Exec((std::string("rm -f "+workspaceDir_+"*").c_str()));
 
   // set range used for normalization of the pdf and a default fit range:
-  auto& mbb = *GetFromRooWorkspace<RooRealVar>(workspace_, mbb_);
+//  auto& mbb = *GetFromRooWorkspace<RooRealVar>(workspace_, mbb_);
+  RooRealVar& mbb = *workspace_.var(mbb_.c_str());
   mbb.setRange(fullRangeId_.c_str(), mbb.getMin(), mbb.getMax());
   mbb.setRange(fitRangeId_.c_str(), fitRangeMin_, fitRangeMax_);
 
@@ -261,7 +262,8 @@ void FitContainer::initialize() {
   // set fit bins
   mbb.setBins(nbins_);
   // plot the input data:
-  auto& data = *GetFromRooWorkspace<RooAbsData>(workspace_,data_);
+//  auto& data = *GetFromRooWorkspace<RooAbsData>(workspace_,data_);
+  RooAbsData& data = *workspace_.data(data_.c_str());
   std::unique_ptr<RooPlot> frame(mbb.frame());
   data.plotOn(frame.get(),RooFit::DataError(RooAbsData::Auto));
   TCanvas canvas("canvas", "", 600, 600);
@@ -314,9 +316,12 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
 	 * Method to fit signal templates
 	 */
 	if(!initialized_) initialize();
-	auto &Pdf 		= *GetFromRooWorkspace<RooAbsPdf>(workspace_,toString(Type::signal));
-	auto &data 	= *GetFromRooWorkspace<RooAbsData>(workspace_,signal_);
-	auto &mbb		= *GetFromRooWorkspace<RooRealVar>(workspace_, mbb_);
+//	auto &Pdf 		= *GetFromRooWorkspace<RooAbsPdf>(workspace_,toString(Type::signal));
+//	auto &data	 	= *GetFromRooWorkspace<RooAbsData>(workspace_,signal_);
+//	auto &mbb		= *GetFromRooWorkspace<RooRealVar>(workspace_, mbb_);
+   auto &Pdf      = *workspace_.pdf(toString(Type::signal).c_str());
+   auto &data     = *workspace_.data(signal_.c_str());
+   auto &mbb      = *workspace_.var(mbb_.c_str());
 	RooFit::SumW2Error(kTRUE);
 
 	//class-helper
@@ -482,9 +487,12 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
 std::unique_ptr<RooFitResult> FitContainer::backgroundOnlyFit(const std::string& name, const bool& plot_params) {
   if (!initialized_) initialize();
 
-	auto &Pdf 		= *GetFromRooWorkspace<RooAbsPdf>(workspace_,toString(Type::background));
-	auto &data	 	= *GetFromRooWorkspace<RooAbsData>(workspace_,data_);
-	auto &mbb		= *GetFromRooWorkspace<RooRealVar>(workspace_, mbb_);
+//	auto &Pdf 		= *GetFromRooWorkspace<RooAbsPdf>(workspace_,toString(Type::background));
+//	auto &data	 	= *GetFromRooWorkspace<RooAbsData>(workspace_,data_);
+//	auto &mbb		= *GetFromRooWorkspace<RooRealVar>(workspace_, mbb_);
+   auto &Pdf      = *workspace_.pdf(toString(Type::background).c_str());
+   auto &data     = *workspace_.data(data_.c_str());
+   auto &mbb      = *workspace_.var(mbb_.c_str());
 	RooFit::SumW2Error(kTRUE);
 
 	//class-helper
