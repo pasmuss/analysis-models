@@ -13,4 +13,19 @@
   <class name="analysis::models::RooSuperNovosibirsk" />
   <class name="analysis::models::RooPolyDijet" />
   <class name="analysis::models::RooSuperDiJet" />
+<!-- for backward compatibility -->
+  <class name="analysis::backgroundmodel::RooDoubleCB" />
+  <class name="analysis::backgroundmodel::RooExpGausExp" />
+  <class name="analysis::backgroundmodel::RooGausExp" />
+  <class name="analysis::backgroundmodel::RooExpBWExp" />
+  <class name="analysis::backgroundmodel::RooPhaseSpace" />
+  <class name="analysis::backgroundmodel::RooPhaseSpacePol4" />
+  <class name="analysis::backgroundmodel::RooRelBreitWigner" />
+  <class name="analysis::backgroundmodel::RooQuadGausExp" />
+  <class name="analysis::backgroundmodel::RooMyNovosibirsk" />
+  <class name="analysis::backgroundmodel::RooExtendNovosibirsk" />
+  <class name="analysis::backgroundmodel::RooDoubleGausExp" />
+  <class name="analysis::backgroundmodel::RooSuperNovosibirsk" />
+  <class name="analysis::backgroundmodel::RooPolyDijet" />
+  <class name="analysis::backgroundmodel::RooSuperDiJet" />
 </lcgdict>

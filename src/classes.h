@@ -12,3 +12,4 @@
 #include "Analysis/Models/interface/RooSuperNovosibirsk.h"
 #include "Analysis/Models/interface/RooPolyDijet.h"
 #include "Analysis/Models/interface/RooSuperDiJet.h"
+#include "Analysis/Models/interface/RooBackgroundModel.h"  // for backward compatibility
