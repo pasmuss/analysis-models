@@ -1,0 +1,41 @@
+#ifndef Analysis_Models_2016_RooGausExp_h
+#define Analysis_Models_2016_RooGausExp_h 1
+
+#include "RooAbsPdf.h"
+#include "RooRealProxy.h"
+#include "RooAbsReal.h"
+
+
+namespace analysis {
+  namespace backgroundmodel {
+
+    class RooGausExp : public RooAbsPdf {
+    public:
+      inline RooGausExp() = default;
+      RooGausExp(const char *name, const char *title,
+                    RooAbsReal& x,
+                    RooAbsReal& mean,
+                    RooAbsReal& sigma,
+                    RooAbsReal& tail_shift,
+					RooAbsReal& tail_sigma);
+      RooGausExp(const RooGausExp& other, const char* name=0) ;
+      virtual TObject* clone(const char* newname) const;
+      inline virtual ~RooGausExp() = default;
+
+    protected:
+      double evaluate() const ;
+
+      RooRealProxy x_ ;
+      RooRealProxy mean_ ;
+      RooRealProxy sigma_ ;
+      RooRealProxy tail_shift_ ;
+      RooRealProxy tail_sigma_ ;
+
+    private:
+      ClassDef(RooGausExp,1)
+    };
+
+  }
+}
+
+#endif  // Analysis_Models_2016_RooExpGausExp_h
