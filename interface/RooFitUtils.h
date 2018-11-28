@@ -27,6 +27,7 @@
 #include "Analysis/Models/interface/utilLib.h"
 
 namespace analysis {
+namespace models {
 
 template<typename T, typename std::enable_if< std::is_base_of<RooCurve, T>::value ||
 											std::is_base_of<RooHist, T>::value, T >::type* = nullptr>
@@ -68,6 +69,7 @@ template<typename T> T* GetRooObjectFromTFile( const std::string& file_name, con
 	return obj;
 }
 
+}
 } /* namespace analysis */
 
 

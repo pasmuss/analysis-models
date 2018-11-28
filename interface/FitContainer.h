@@ -8,36 +8,16 @@
 #include <fstream>
 
 #include "TH1.h"
-#include "TFile.h"
 #include "TCanvas.h"
-#include "TObject.h"
-#include "TString.h"
-#include "TIterator.h"
-#include "TMatrixD.h"
-#include "TMatrixDSym.h"
-#include "TMatrixDEigen.h"
-#include "TMatrixDSymEigen.h"
-#include "RooMinimizer.h"
 
 #include "RooPlot.h"
-#include "RooCurve.h"
-#include "RooHist.h"
 #include "RooAbsPdf.h"
-#include "RooRealVar.h"
-#include "RooDataHist.h"
 #include "RooWorkspace.h"
 #include "RooFitResult.h"
-#include "RooList.h"
-
-#include "RooGaussian.h"
-#include "RooAddPdf.h"
 
 #include "Analysis/Models/interface/HistContainer.h"
 #include "Analysis/Models/interface/TreeContainer.h"
 #include "Analysis/Models/interface/ParamModifier.h"
-#include "Analysis/Models/interface/ProbabilityDensityFunctions.h"
-#include "Analysis/Models/interface/RooFitQuality.h"
-#include "Analysis/Models/interface/RooFitUtils.h"
 
 
 namespace analysis {
@@ -57,7 +37,6 @@ namespace analysis {
       FitContainer(const TH1* data, const TH1* signal, const TH1* background,
 		   const std::string& outputDir = defaultOutputDir_);
       FitContainer(const TH1* data, const std::string& outputDir = defaultOutputDir_, const std::string & type = "data");
-//      FitContainer(const TH1* data, const std::string& outputDir = defaultOutputDir_);
       FitContainer(TTree& data, const std::string& outputDir = defaultOutputDir_);
       FitContainer(const HistContainer& container,
 		   const std::string& outputDir = defaultOutputDir_);

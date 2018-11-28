@@ -7,6 +7,15 @@
 #include "TMath.h"
 #include "TSystem.h"
 #include "TLatex.h"
+#include "TMatrixD.h"
+#include "TMatrixDSym.h"
+#include "TMatrixDEigen.h"
+#include "TMatrixDSymEigen.h"
+#include "TIterator.h"
+
+#include "RooHist.h"
+#include "RooRealVar.h"
+#include "RooDataHist.h"
 #include "RooAbsReal.h"
 #include "RooAbsPdf.h"
 #include "RooArgList.h"
@@ -29,6 +38,9 @@
 #include "Analysis/Models/interface/RooPhaseSpacePol4.h"
 #include "Analysis/Models/interface/FitContainer.h"
 #include "Analysis/Models/interface/Tools.h"
+#include "Analysis/Models/interface/ProbabilityDensityFunctions.h"
+#include "Analysis/Models/interface/RooFitQuality.h"
+#include "Analysis/Models/interface/RooFitUtils.h"
 
 
 using namespace analysis::models;
@@ -65,43 +77,6 @@ FitContainer::FitContainer(const std::string& outputDir) :
 		obs_(259399.) //SR1-259399, SR2-105053, SR3-26760
 {}
 
-//FitContainer::FitContainer(const FitContainer& cont){
-//	initialized_ 	= cont.initialized_;
-//	written_		= cont.written_;
-//	splitrange_		= cont.splitrange_;
-//	outputDir_		= cont.outputDir_;
-//	plotDir_		= cont.plotDir_;
-//	workspaceDir_	= cont.workspaceDir_;
-//	fullRangeId_	= cont.fullRangeId_;
-//	fitRangeId_		= cont.fitRangeId_;
-//	fitRangeLowId_	= cont.fitRangeLowId_;
-//	fitRangeHighId_ = cont.fitRangeHighId_;
-//	fitSplRangeId_ 	= cont.fitSplRangeId_;
-//	fitRangeMin_	= cont.fitRangeMin_;
-//	fitRangeMax_	= cont.fitRangeMax_;
-//	blind_lowEdge_	= cont.blind_lowEdge_;
-//	blind_highEdge_	= cont.blind_highEdge_;
-//	verbosity_		= cont.verbosity_;
-//	workspace_		= cont.workspace_;
-//	outRootFileName_= cont.outRootFileName_;
-//	mbb_			= cont.mbb_;
-//	weight_			= cont.weight_;
-//	data_			= cont.data_;
-//	signal_			= cont.signal_;
-//	bkg_			= cont.bkg_;
-////	Workaround to copy TTree
-////	Original idea by Gregor Mittag
-////	TODO: Implement it. DOesn't work out of the box
-////	bkgOnlyFit_(((TTree&) cont.bkgOnlyFit_).CloneTree(0));
-////	bkgOnlyFit_.SetDirectory(0);
-////	bkgOnlyFit_.CopyEntries(cont.bkgOnlyFit_);
-////	bkgOnlyFit_		= cont.bkgOnlyFit_;
-//	chi2BkgOnly_	= cont.chi2BkgOnly_;
-//	normChi2BkgOnly_= cont.normChi2BkgOnly_;
-//	ndfBkgOnly_		= cont.ndfBkgOnly_;
-//	nbins_			= cont.nbins_;
-//}
-
 
 FitContainer::FitContainer(const TH1* data, const std::string& outputDir, const std::string & type) : FitContainer(outputDir)
 {
@@ -113,8 +88,6 @@ FitContainer::FitContainer(const TH1* data, const std::string& outputDir, const 
 	nbins_ = data->GetNbinsX();
 	if(type == "background") {
 		data_ = bkg_;
-//		RooDataHist bkgContainer(bkg_.c_str(), bkg_.c_str(), mbb, data);
-//		workspace_.import(bkgContainer);
 		RooDataHist dataContainer(data_.c_str(), data_.c_str(), mbb, data);
 		workspace_.import(dataContainer);
 	}
@@ -352,7 +325,6 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
 	                                     RooAbsReal::NumEvent));
 	  if(plot_params){
 		  double par_xmin = 0.65, par_xmax = 0.9, par_ymax = 0.6;
-	//	  par_xmin = 0.2; par_xmax = 0.45; par_ymax = 0.9;
 		  Pdf.paramOn(frame.get(),RooFit::Layout(par_xmin,par_xmax,par_ymax));//0.98-pad1->GetRightMargin(),0.83-pad1->GetTopMargin()));
 		  frame->getAttText()->SetTextSize(0.03);
 	  }
@@ -383,10 +355,9 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
 	    ndfBkgOnly_ 		= chi2ndf.ndf;
 	    chi2BkgOnly_ 		= chi2ndf.chi2;
 	    normChi2BkgOnly_ 	= chi2BkgOnly_/ndfBkgOnly_;
-	  	bkgOnlyFit_.Fill();
+       bkgOnlyFit_.Fill();
 
-	  	std::string chi2str(Form("%.1f/%d = %.1f", chi2BkgOnly_,
-	  		 	   ndfBkgOnly_, normChi2BkgOnly_));
+       std::string chi2str(Form("%.1f/%d = %.1f", chi2BkgOnly_, ndfBkgOnly_, normChi2BkgOnly_));
 	    std::cout << "\nNormalized chi^2: " << chi2str << std::endl;
 
 	    // TMath::Prob p-value by CA
@@ -400,13 +371,10 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
 	    hpull->SetMarkerSize(0.8);	//0.8 for lowM
 	    std::unique_ptr<RooPlot> frame2(mbb.frame());
 	    frame2->addPlotable(hpull,"P");
-	    //frame2->addObject(frame->pullHist());
 
-	    //TCanvas canvas("canvas", "", 600, 600);
 	    TCanvas canvas;
 	    canvas.SetCanvasSize(500,500);
 	    canvas.cd();
-	    //prepareCanvas_(canvas);
 	    prepareFrame_(*frame);
 	    prepareFrame_(*frame2);
 
@@ -422,7 +390,6 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
 	    frame->GetYaxis()->SetTitleSize(0.038);
 	    frame->GetYaxis()->SetTitleOffset(1.6);
 	    frame->GetYaxis()->SetLabelSize(0.033);
-	    //frame->GetYaxis()->SetRangeUser(frame->GetMinimum(), frame->GetMaximum()+200);
 	    frame->Draw();
 	
 	    std::string lumistr(Form("%.1f", lumi_));
@@ -572,9 +539,9 @@ std::unique_ptr<RooFitResult> FitContainer::backgroundOnlyFit(const std::string&
   ////////////////////////////////////////////////////////////////////////////////
   //double myChi2 = chiSquare_(data,
   //                           *(frame->getCurve("background_curve")),
-  //				blind_lowEdge_, blind_highEdge_, nPars);
+  //                                blind_lowEdge_, blind_highEdge_, nPars);
   //std::string myChi2str(Form("%.1f/%d = %.1f", myChi2, ndfBkgOnly_,
-  //			     myChi2/ndfBkgOnly_));
+  //                             myChi2/ndfBkgOnly_));
   //std::cout << "\nMy normalized chi^2: " << myChi2str << std::endl;
   //latex.DrawLatexNDC(0.98-canvas.GetRightMargin(), 0.93-canvas.GetTopMargin(),
   //                   (std::string("#chi^{2}/ndf = ")+myChi2str).c_str());
