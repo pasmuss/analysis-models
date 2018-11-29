@@ -63,8 +63,8 @@ FitContainer::FitContainer(const std::string& outputDir) :
 		verbosity_(1),
 		workspace_(RooWorkspace("workspace")),
 		outRootFileName_(getOutputPath_("workspace")+"workspace.root"),
-		mbb_("mbb"),
-		weight_("weight"),
+		mbb_("oi"),
+		weight_("bla"),
 		data_("data_container"),
 		signal_("signal_container"),
 		bkg_("background_container"),
@@ -174,8 +174,11 @@ FitContainer::FitContainer(const HistContainer& container,
 			   const std::string& outputDir) : FitContainer(container.data().get(), container.bbH().get(), container.background().get(),
 				       outputDir)   {}
 
-FitContainer::FitContainer(TTree& data, const std::string& outputDir) : FitContainer(outputDir)
+FitContainer::FitContainer(TTree& data, const std::string& outputDir, const std::string& dataleaf, const std::string& weightleaf) : FitContainer(outputDir)
  {
+    
+   mbb_ = dataleaf;
+   weight_ = weightleaf;
 	bkg_ = "";
 	signal_ = "";
 	RooRealVar mbb(mbb_.c_str(), "M_{12}",
@@ -194,10 +197,38 @@ FitContainer::FitContainer(TTree& data, const std::string& outputDir) : FitConta
 	workspace_.import(dataContainer);
 }
 
+// //#### Need to improve below and above
+// FitContainer::FitContainer(const TreeContainer& container, const std::string& outputDir) 
+// 			: FitContainer(*container.data(), outputDir, container.dataLeaf(), container.weightLeaf()) {
+// }
 
 FitContainer::FitContainer(const TreeContainer& container, const std::string& outputDir) 
-			: FitContainer(*container.data(), outputDir) {
+			: FitContainer(outputDir) {
+   
+   mbb_ = container.dataLeaf();
+   weight_ = container.weightLeaf();
+      
+	bkg_ = "";
+	signal_ = "";
+
+   RooRealVar mbb(mbb_.c_str(), "M_{12}",
+                 0.0, (*container.data()).GetMaximum(mbb_.c_str()), "GeV");
+	fitRangeMin_ = mbb.getMin();
+	fitRangeMax_ = mbb.getMax();
+	nbins_	     = 100;
+	RooRealVar weight(weight_.c_str(), "weight", 0.0, 1000.0);
+	workspace_.import(mbb);
+	workspace_.import(weight);
+
+	// Name and title of the dataset MUST be identical (see initialize() method).
+	RooDataSet dataContainer(data_.c_str(), data_.c_str(), RooArgSet(mbb, weight),
+                           RooFit::Import(*container.data()),
+                           RooFit::WeightVar(weight_.c_str()));
+	workspace_.import(dataContainer);
+   
 }
+
+
 
 
 FitContainer::~FitContainer() {

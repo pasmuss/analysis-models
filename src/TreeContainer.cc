@@ -8,9 +8,38 @@ using namespace analysis::models;
 
 
 TreeContainer::TreeContainer(const std::string& input) :
-  treeFileName_(input),
-  data_(getTree_("data")) {
+   treeFileName_(input),
+   treename_("MssmHbb_13TeV"),
+   dataleaf_("mbb"),
+   weightleaf_("weight"),
+   data_(getTree_("data"))
+{
+//    std::string name = "data";  // change this
+//    TFile file(treeFileName_.c_str(), "read");
+//    TTree & intree = *static_cast<TTree*>(file.Get(treename_.c_str())->Clone(name.c_str()));
+//    data_ = std::unique_ptr<TTree>(intree.CloneTree(0));
+//    data_->SetDirectory(0);
+//    data_->CopyEntries(&intree);
+//    file.Close();
+//    
 }
+
+TreeContainer::TreeContainer(const std::string& input, const std::string& tree, const std::string& data, const std::string& weight) :
+   treeFileName_(input),
+   treename_(tree),
+   dataleaf_(data),
+   weightleaf_(weight)
+{
+   std::string name = "data";  // change this
+   TFile file(treeFileName_.c_str(), "read");
+   TTree & intree = *static_cast<TTree*>(file.Get(treename_.c_str())->Clone(name.c_str()));
+   data_ = std::unique_ptr<TTree>(intree.CloneTree(0));
+   data_->SetDirectory(0);
+   data_->CopyEntries(&intree);
+   file.Close();
+   
+}
+
 
 
 TreeContainer::~TreeContainer() = default;

@@ -34,14 +34,11 @@ namespace analysis {
         return "";              // to silence compiler
       };
 
-      FitContainer(const TH1* data, const TH1* signal, const TH1* background,
-		   const std::string& outputDir = defaultOutputDir_);
+      FitContainer(const TH1* data, const TH1* signal, const TH1* background, const std::string& outputDir = defaultOutputDir_);
       FitContainer(const TH1* data, const std::string& outputDir = defaultOutputDir_, const std::string & type = "data");
-      FitContainer(TTree& data, const std::string& outputDir = defaultOutputDir_);
-      FitContainer(const HistContainer& container,
-		   const std::string& outputDir = defaultOutputDir_);
-      FitContainer(const TreeContainer& container,
-		   const std::string& outputDir = defaultOutputDir_);
+      FitContainer(TTree& data, const std::string& outputDir = defaultOutputDir_, const std::string& dataleaf = "mbb", const std::string & weightleaf = "weight");
+      FitContainer(const HistContainer& container, const std::string& outputDir = defaultOutputDir_);
+      FitContainer(const TreeContainer& container, const std::string& outputDir = defaultOutputDir_);
       virtual ~FitContainer();
       void initialize();
 
@@ -57,8 +54,7 @@ namespace analysis {
       RooWorkspace& getWorkspace();
 
       void setModel(const Type& type, const std::string& model);
-      void setModel(const Type& type, const std::string& model,
-                    const std::vector<ParamModifier>& modifiers);
+      void setModel(const Type& type, const std::string& model, const std::vector<ParamModifier>& modifiers);
       std::unique_ptr<RooFitResult> backgroundOnlyFit(const std::string& model, const bool& plot_params = 0);
       std::unique_ptr<RooFitResult> FitSignal(const std::string & model, const bool& plot_params = 0);
 
@@ -83,8 +79,7 @@ namespace analysis {
       std::string getOutputPath_(const std::string& subdirectory = "");
       int getNonZeroBins_(const RooAbsData& data);
       int getBlindedBins_(const RooAbsData& data, double blind_lowEdge, double blind_highEdge);
-      bool applyModifiers_(RooAbsPdf& pdf,
-                           const std::vector<ParamModifier>& modifiers);
+      bool applyModifiers_(RooAbsPdf& pdf, const std::vector<ParamModifier>& modifiers);
       void makeLog_(const RooFitResult& fitResult);
 
       // data member
@@ -97,10 +92,10 @@ namespace analysis {
       std::string workspaceDir_;
       std::string fullRangeId_;
       std::string fitRangeId_;
-      std::string fitRangeLowId_;	// for split range by CA
+      std::string fitRangeLowId_;        // for split range by CA
       //std::string fitRangeMedId_;       // for split range by CA
-      std::string fitRangeHighId_;	// for split range by CA
-      std::string fitSplRangeId_;	// for split range by CA
+      std::string fitRangeHighId_;        // for split range by CA
+      std::string fitSplRangeId_;        // for split range by CA
       double blind_lowEdge_;
       double blind_highEdge_;
       int verbosity_;
