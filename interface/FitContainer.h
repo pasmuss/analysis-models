@@ -34,11 +34,11 @@ namespace analysis {
         return "";              // to silence compiler
       };
 
-      FitContainer(const TH1* data, const TH1* signal, const TH1* background, const std::string& outputDir = defaultOutputDir_);
-      FitContainer(const TH1* data, const std::string& outputDir = defaultOutputDir_, const std::string & type = "data");
-      FitContainer(TTree& data, const std::string& outputDir = defaultOutputDir_, const std::string& dataleaf = "mbb", const std::string & weightleaf = "weight");
-      FitContainer(const HistContainer& container, const std::string& outputDir = defaultOutputDir_);
-      FitContainer(const TreeContainer& container, const std::string& outputDir = defaultOutputDir_);
+      FitContainer(const TH1* data, const TH1* signal, const TH1* background, const std::string& outputDir);
+      FitContainer(const TH1* data, const std::string& outputDir, const std::string & type = "data");
+      FitContainer(TTree& data, const std::string& outputDir, const std::string& dataleaf = "mbb", const std::string & weightleaf = "weight");
+      FitContainer(const HistContainer& container, const std::string& outputDir);
+      FitContainer(const TreeContainer& container, const std::string& outputDir);
       virtual ~FitContainer();
       void initialize();
 
@@ -55,7 +55,7 @@ namespace analysis {
 
       void setModel(const Type& type, const std::string& model);
       void setModel(const Type& type, const std::string& model, const std::vector<ParamModifier>& modifiers);
-      std::unique_ptr<RooFitResult> backgroundOnlyFit(const std::string& model, const bool& plot_params = 0);
+      std::unique_ptr<RooFitResult> modelFit(const std::string& model, const bool & weighted = false, const bool& plot_params = 0);
       std::unique_ptr<RooFitResult> FitSignal(const std::string & model, const bool& plot_params = 0);
 
       void profileModel(const Type& type);
@@ -83,7 +83,6 @@ namespace analysis {
       void makeLog_(const RooFitResult& fitResult);
 
       // data member
-      static const std::string defaultOutputDir_;
       bool initialized_;
       bool written_;
       bool splitrange_;
@@ -108,7 +107,7 @@ namespace analysis {
       std::string bkg_;
       float fitRangeMin_;
       float fitRangeMax_;
-      TTree bkgOnlyFit_;
+      TTree modelFit_;
       float chi2BkgOnly_;
       float normChi2BkgOnly_;
       int ndfBkgOnly_;
@@ -117,6 +116,8 @@ namespace analysis {
       int nbins_;
       float lumi_;
       float obs_;
+      std::string type_;
+      bool weighted_;
     };
 
     inline void FitContainer::Import(const RooAbsArg& inArg){ workspace_.import(inArg);}
