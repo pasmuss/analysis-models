@@ -82,11 +82,13 @@ void ProbabilityDensityFunctions::setPdf(const std::string& function, const std:
 	else if (function_name == "dijetv4") getDijetv4(name);			//version 3 with extended
 	else if (function_name == "dijetv4logprod") getDijetv4LogisticProd(name);
  	else if (function_name == "expgausexp") getExpGausExp(name);
+	else if (function_name == "gaus") getGaus(name);
 	else if (function_name == "gausexp") getGausExp(name);
 	else if (function_name == "doublegausexp") getDoubleGausExp(name);
 	else if (function_name == "triplegausexp") getTripleGausExp(name);
 	else if (function_name == "gausexppsprod") getGausExpPSProd(name);		//PS x GausExp (3)
 	else if (function_name == "gausexpeffprod") getGausExpEffProd(name);		//Eff x GausExp (5)
+	else if (function_name == "doublegausexpeffprod") getDoubleGausExpEffProd(name);		//Eff x GausExp (5)
 	else if (function_name == "expbwexp") getExpBWExp(name);
 	else if (function_name == "bukin") getBukin(name);
 	else if (function_name == "bukinpsprod") getBukinPSProd(name);		//PS x Bukin (5)
@@ -619,6 +621,19 @@ void ProbabilityDensityFunctions::getGausExpEffProd(const std::string& name){
         workspace_->import(gausExpEffprod);
 }
 
+void ProbabilityDensityFunctions::getDoubleGausExpEffProd(const std::string& name){
+        std::string ge_name = name + "_gausexp";
+        getDoubleGausExp(ge_name);
+        RooDoubleGausExp& gausExp = (RooDoubleGausExp&) *workspace_->pdf(ge_name.c_str());
+
+        std::string eff_name = name + "_eff";
+        getEfficiency(eff_name);
+        RooFormulaVar& eff = (RooFormulaVar&) *workspace_->function(eff_name.c_str());
+
+        RooEffProd doubleGausExpEffprod(name.c_str(),(name + "_doubleGausExpeffprod").c_str(), gausExp, eff);
+        workspace_->import(doubleGausExpEffprod);
+}
+
 void ProbabilityDensityFunctions::getExpBWExp(const std::string& name){
 	RooRealVar& var = *workspace_->var(var_.c_str());
 	RooRealVar peak("peak", "peak", getPeakStart(), 50.0, 500.0, "GeV");
@@ -1036,6 +1051,7 @@ const std::vector<std::string> ProbabilityDensityFunctions::availableModels_ =
    "triplegausexp",
    "gausexppsprod",
    "gausexpeffprod",
+   "doublegausexpeffprod",
    "expbwexp",
    "bukin",
    "bukinpsprod",
