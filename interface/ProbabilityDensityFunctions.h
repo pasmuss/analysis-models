@@ -98,6 +98,7 @@ namespace analysis {
   	void getGausExp(const std::string& name);
   	void getGausExpPSProd(const std::string& name);
 	void getGausExpEffProd(const std::string& name);
+	void getDoubleGausExpEffProd(const std::string& name);
   	void getExpBWExp(const std::string& name);
   	void getBukin(const std::string& name);
   	void getBukinPSProd(const std::string& name);		
