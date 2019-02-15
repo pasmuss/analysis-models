@@ -9,7 +9,7 @@ using namespace analysis::models;
 
 TreeContainer::TreeContainer(const std::string& input) :
    treeFileName_(input),
-   treename_("MssmHbb_13TeV"),
+   treename_("MssmHbb"),
    dataleaf_("mbb"),
    weightleaf_("weight"),
    data_(getTree_("data"))
@@ -58,7 +58,7 @@ void TreeContainer::show() const {
 std::unique_ptr<TTree> TreeContainer::getTree_(const std::string& name) const {
   TFile file(treeFileName_.c_str(), "read");
   TTree& input = // FIXME: tree name currently hard-coded
-    *static_cast<TTree*>(file.Get("MssmHbb_13TeV")->Clone(name.c_str()));
+    *static_cast<TTree*>(file.Get("MssmHbb")->Clone(name.c_str()));
   std::unique_ptr<TTree> tree(input.CloneTree(0));
   tree->SetDirectory(0);
   tree->CopyEntries(&input);
