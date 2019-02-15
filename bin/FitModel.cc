@@ -36,6 +36,7 @@ int main(int argc, char* argv[]) {
       ("input_tree_file,t", po::value<std::string>(), "ROOT file from which input tree is retrieved. If this parameter is not given a binned fit is performed using 'input_file'.")
       ("input_data"  , po::value<std::string>(), "Name of data leaf in the input tree")
       ("input_weight", po::value<std::string>(), "Name of weight leaf in the input tree")
+      ("input_tree", po::value<std::string>(), "Name of the input tree")
       ("output_directory,o", po::value<std::string>()->default_value("fitmodel_output/"),"Directory where the output is stored.")
       ("fit_min", po::value<float>(), "Lower bound of the fit range.")
       ("fit_max", po::value<float>(), "Upper bound of the fit range.")
