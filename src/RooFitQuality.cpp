@@ -54,6 +54,7 @@ Chi2Ndf RooFitQuality::chiSquare(RooPlot& frame,const std::string& curvename, co
 
 		if(y!=0){
 			double pull = (y > curve_yavg) ? ((y - curve_yavg)/eyl) : ((y - curve_yavg)/eyh);
+			std::cout << "Chi^2 for bin " << i+1 << ": " << pull*pull << std::endl;
 			chi2 += pull*pull;
 			++nbins;
 		}

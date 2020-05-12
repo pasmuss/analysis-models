@@ -51,6 +51,7 @@ namespace analysis {
       FitContainer& fitRangeMin(float min);
       FitContainer& fitRangeMax(float max);
       FitContainer& setNBins(int nbins);
+      FitContainer& setObs(int obs);
       RooWorkspace& getWorkspace();
 
       void setModel(const Type& type, const std::string& model);

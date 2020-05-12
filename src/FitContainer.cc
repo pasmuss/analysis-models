@@ -42,6 +42,7 @@
 #include "Analysis/Models/interface/RooFitQuality.h"
 #include "Analysis/Models/interface/RooFitUtils.h"
 
+#include "Analysis/Models/interface/RooGaussianErf.h"
 
 using namespace analysis::models;
 
@@ -73,8 +74,11 @@ FitContainer::FitContainer(const std::string& outputDir) :
       normChi2BkgOnly_(-10000.0),
       ndfBkgOnly_(-10000),
       nbins_(100),
-      lumi_(35.7), //2.69,12.9,36.62
-      obs_(259399.), //SR1-259399, SR2-105053, SR3-26760
+      lumi_(36.0), //2.69,12.9,36.62
+      //      obs_(129643.), //SR1-129643, SR2-1932 total 131750 SL channel  2017
+      //      obs_(158641.), //SR1,[100,400]
+      obs_(73766.),  //SR2[200,550]
+      //      obs_(12471.), //SR3[350,750]
       type_("background"),
       weighted_(false)
 {}
@@ -284,11 +288,12 @@ void FitContainer::initialize() {
    prepareCanvas_(canvas);
    prepareFrame_(*frame);
    frame->Draw();
-   canvas.SaveAs((plotDir_+"input_data.pdf").c_str());
+   canvas.SaveAs((plotDir_+"input_data.png").c_str());
    canvas.SetLogy();
+   canvas.SetLogx();
    if(frame->GetMinimum() == 0) frame->SetMinimum(0.01);
    frame->Draw();
-   canvas.SaveAs((plotDir_+"input_data_log.pdf").c_str());
+   canvas.SaveAs((plotDir_+"input_data_log.png").c_str());
    // initialize background-only fit result tree:
    //TODO: why TTree and TTree branches should be members of the class? Cna this be avoid?
    modelFit_.Branch("chi2", &chi2BkgOnly_, "chi2/F");
@@ -317,7 +322,6 @@ void FitContainer::setModel(const Type& type, const std::string& name)
 void FitContainer::setModel(const Type& type, const std::string& name, const std::vector<ParamModifier>& modifiers)
 {
    if (!initialized_) initialize();
-   
    type_ = toString(type);
 
    ProbabilityDensityFunctions pdfs(workspace_,mbb_.c_str());
@@ -325,9 +329,10 @@ void FitContainer::setModel(const Type& type, const std::string& name, const std
    double peak_pos = getPeakStart_(type,500);  
    pdfs.setPeakStart(peak_pos);
    pdfs.setPdf(name,toString(type));
-  
+
+   std::cout <<"name ="<<  name << std::endl;
    applyModifiers_(*(workspace_.pdf(toString(type).c_str())), modifiers);
-   
+                                                                                     
 }
 
 std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, const bool& plot_params) {
@@ -485,12 +490,14 @@ std::unique_ptr<RooFitResult> FitContainer::FitSignal(const std::string & name, 
        frame2->SetMaximum(+5.);
        frame2->Draw();
 
-       canvas.SaveAs((plotDir_+name+"_lowM_linear.pdf").c_str());
+       canvas.SaveAs((plotDir_+name+"_lowM_linear.png").c_str());
        pad1->SetLogy();
+       pad1->SetLogx();
+       canvas.SetLogx();
        frame->GetYaxis()->SetRangeUser(0.001, frame->GetMaximum()*5);
        canvas.Modified();
        canvas.Update();
-       canvas.SaveAs((plotDir_+name+"_lowM_log.pdf").c_str());
+       canvas.SaveAs((plotDir_+name+"_lowM_log.png").c_str());
 
        return fitResult;
 
@@ -683,12 +690,14 @@ std::unique_ptr<RooFitResult> FitContainer::modelFit(const std::string& name, co
   frame2->GetYaxis()->SetLabelOffset(0.011);
   frame2->Draw();
 
-  canvas.SaveAs((plotDir_+name+"_lowM_linear.pdf").c_str());
+  canvas.SaveAs((plotDir_+name+"_lowM_linear.png").c_str());
   pad1->SetLogy();
+  pad1->SetLogx();
+  canvas.SetLogx();
   frame->GetYaxis()->SetRangeUser(0.1, frame->GetMaximum()*5);
   canvas.Modified();
   canvas.Update();
-  canvas.SaveAs((plotDir_+name+"_lowM_log.pdf").c_str());
+  canvas.SaveAs((plotDir_+name+"_lowM_log.png").c_str());
 
   return fitResult;
 }
@@ -726,10 +735,10 @@ void FitContainer::profileModel(const Type& type) {
       prepareFrame_(*frame);
       frame->Draw();
       canvas.SaveAs((plotDir_+toString(type)+"_profile_"+
-                     parameter->GetName()+".pdf").c_str());
+                     parameter->GetName()+".png").c_str());
       canvas.SetLogy();
       canvas.SaveAs((plotDir_+toString(type)+"_profile_"+
-                     parameter->GetName()+"_log.pdf").c_str());
+                     parameter->GetName()+"_log.png").c_str());
     }
     parameter = static_cast<RooRealVar*>(iter->Next());
   }
@@ -798,6 +807,7 @@ FitContainer& FitContainer::fitRangeMax(float max)
    return *this;
 }
 
+
 FitContainer& FitContainer::setNBins(int nbins)
 {
    RooRealVar& mbb = *workspace_.var(mbb_.c_str());
@@ -806,6 +816,13 @@ FitContainer& FitContainer::setNBins(int nbins)
 
    return *this;
 }
+
+FitContainer& FitContainer::setObs(int obs)
+{
+   obs_ = obs;
+   return *this;
+}
+
 
 std::string FitContainer::getOutputPath_(const std::string& subdirectory)
 {
@@ -876,6 +893,7 @@ bool FitContainer::applyModifiers_(RooAbsPdf& pdf, const std::vector<ParamModifi
     }
     parameter = static_cast<RooRealVar*>(iter->Next());
   }
+
   if (modifiers.size() > 0 && !modified) {
     std::cerr << ">>> None of the modifiers provided to '" << pdf.GetName()
               << "' pdf could be applied." << std::endl;

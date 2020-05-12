@@ -45,8 +45,11 @@
 #include "Analysis/Models/interface/RooDoubleGausExp.h"
 #include "Analysis/Models/interface/RooPolyDijet.h"
 #include "Analysis/Models/interface/RooSuperDiJet.h"
+//#include "Analysis/Models/interface/RooExpPolynom.h"
+//#include "Analysis/Models/interface/RooBukinExp.h"
+#include "Analysis/Models/interface/RooGaussianErf.h"
 
-//#include "Analysis/Models/interface/FitContainer.h"
+#include "Analysis/Models/interface/FitContainer.h"
 #include "Analysis/Models/interface/Tools.h"
 
 namespace analysis {
@@ -76,6 +79,7 @@ namespace analysis {
 	void getExtNovoPSProd(const std::string& name);
 	void getExtNovoEffProd(const std::string& name);
 	void getSuperNovoEffProd(const std::string& name, const int& degree);
+	void getSuperNovoLogProd(const std::string& name, const int& degree);
 	void getExtNovoEfffixProd(const std::string& name);
 	void getExtNovoLogisticProd(const std::string& name);
 	void getExtNovoExtLogisticProd(const std::string& name);
@@ -99,12 +103,14 @@ namespace analysis {
   	void getGausExpPSProd(const std::string& name);
 	void getGausExpEffProd(const std::string& name);
 	void getDoubleGausExpEffProd(const std::string& name);
+	void getGaussianErf(const std::string& name);
   	void getExpBWExp(const std::string& name);
   	void getBukin(const std::string& name);
   	void getBukinPSProd(const std::string& name);		
   	void getBernstein(const std::string& name, const int& numCoeffs);
   	void getChebychev(const std::string& name, const int& numCoeffs);
   	void getBernEffProd(const std::string& name, const int& numCoeffs);
+	void getBernLogProd(const std::string& name, const int& numCoeffs);
 	void getBernEfffixProd(const std::string& name, const int& numCoeffs);
   	void getBernPSProd(const std::string& name, const int& numCoeffs);	
   	void getChebEffProd(const std::string& name, const int& numCoeffs);
@@ -113,6 +119,7 @@ namespace analysis {
   	void getBreitWigner(const std::string& name);
   	void getRelBreitWigner(const std::string& name);
   	void getRooQuadGausExp(const std::string& name);
+	//void getExpPolynom(const std::string& name, const int& degree);
   	void getSuperDiJet(const std::string& name, const int& degree);
   	void getSuperDiJetEffProd(const std::string& name, const int& degree);
   	void getSuperDiJetLinearProd(const std::string& name, const int& degree);
@@ -127,7 +134,7 @@ namespace analysis {
 	void getHyperbolictan(const std::string& name);
 	void getExp(const std::string& name,const std::string& name1 = "");			//Exponential function
   	void getGaus(const std::string& name,const std::string& mean_name = "", const std::string& sigma_name = "");			//Gaus function
-
+	//	void getBukinExp(const std::string& name);
 
   	void setPeakStart(const double& peak);
   	const double& getPeakStart(const double& max = 250);
@@ -144,7 +151,7 @@ namespace analysis {
   	std::string var_;
   	bool modify_par_names_;
   	static const std::vector<std::string> availableModels_;
-  	const int defaultNumberOfCoefficients_ = 9;
+  	const int defaultNumberOfCoefficients_ = 6;//9
 
   	const char* paramName_(const std::string& name, const std::string& default_name);
   	static std::unique_ptr<RooArgList>
